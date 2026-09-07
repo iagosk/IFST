@@ -13,7 +13,9 @@ O sistema IFRN Sport Time tem por objetivo centralizar o processo de agendamento
 |---|---|
 | React | Desenvolvimento do Front-end |
 | NestJS | Desenvolvimento do Back-end/API |
+| JSON Web Token (JWT) | Autentição |
 | PostgreSQL | Banco de dados |
-| Git | Controle de versão |
+| TypeORM | Manipulação do Banco de Dados|
 | Docker | Containerização |
+| Git | Controle de versão |
 | GitHub | Gerenciamento do projeto |
