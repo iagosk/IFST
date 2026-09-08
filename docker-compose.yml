@@ -1,16 +1,22 @@
 services:
   api:
-    build: .
+    build: ./backend
     ports:
       - "3000:3000"
     volumes:
-      - .:/app
-      - node_modules:/app/node_modules
+      - .:/backend:/backend
+      - node_modules:/backend/node_modules
     env_file:
-      - .env
+      - backend/.env
     depends_on:
       - db
     command: npm run start:dev
+
+  interface:
+    build:
+      context: ./frontend
+    ports:
+      - 8080:8080
 
   db:
     image: postgres:16-alpine
@@ -20,9 +26,9 @@ services:
       POSTGRES_PASSWORD: ${DB_PASSWORD}
       POSTGRES_DB: ${DB_NAME}
     ports:
-      - "5432:5432"
+      - "5433:5432"
     volumes:
-      - db_data:/var/lib/postgresql/data
+      - db_data:/var/lib/postgresql/data  
 
 volumes:
   node_modules:
